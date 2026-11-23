@@ -1,8 +1,15 @@
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\auth\Login.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\controller\AuthController.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\controller\WorkShiftController.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\dao\JDBCConnection.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\dao\UserDAO.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\dao\WorkShiftDAO.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\model\ShiftAssignment.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\model\ShiftSummary.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\model\User.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\model\WorkShift.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\service\AuthService.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\service\WorkShiftService.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\session\UserSession.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\SmartPark.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\util\PasswordHash.java
@@ -10,4 +17,6 @@ D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\auth\
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\ContentPanel.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\HeaderPanel.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\MainFrame.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\shift\AddWorkShift.java
+D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\shift\WorkShiftPanel.java
 D:\Code\NetBeans\Java_Project\SmartPark\src\main\java\hello\smartpark\view\SidebarPanel.java

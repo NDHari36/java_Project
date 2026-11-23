@@ -37,7 +37,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabelThongBao.setText(noiDung);
     }
     public void clearMK(){
-        jPasswordField.setText("");
+        jPasswordField.setText("*****");
         jPasswordField.requestFocus();
     }
 

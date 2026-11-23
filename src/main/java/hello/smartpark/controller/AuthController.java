@@ -28,40 +28,36 @@ public class AuthController {
 
     public void handleLogin() {
 
-        // Lấy dữ liệu từ giao diện
-        String username = view.getUsername();
-        String password = view.getPassword();
+    String username = view.getUsername();
+    String password = view.getPassword();
 
-        try {
+    try {
+        // Đăng nhập và lấy thông tin User
+        User user = authService.login(username, password);
 
-            // Gọi xử lý đăng nhập
-            User user = authService.login(username, password);
+        // Lưu phiên đăng nhập
+        UserSession.setCurrentUser(user);
 
-            // Lưu phiên đăng nhập
-            UserSession.setCurrentUser(user);
+        // Truyền User sang MainFrame
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
 
-            // Mở giao diện chính
-            MainFrame mainFrame = new MainFrame();
-            mainFrame.setVisible(true);
+        // Đóng cửa sổ đăng nhập
+        view.dispose();
 
-            // Đóng cửa sổ đăng nhập
-            view.dispose();
+    } catch (IllegalArgumentException e) {
 
-        } catch (IllegalArgumentException  e) {
+        view.thongBao(e.getMessage());
+        view.clearMK();
 
-            // Lỗi thông tin đăng nhập
-            view.thongBao(e.getMessage());
-            view.clearMK();
+    } catch (SQLException e) {
 
-        } catch (SQLException e) {
+        e.printStackTrace();
 
-            // Lỗi kết nối hoặc truy vấn database
-            e.printStackTrace();
-
-            view.thongBao(
+        view.thongBao(
                 "Không thể kết nối cơ sở dữ liệu. "
                 + "Vui lòng kiểm tra lại!"
-            );
-        }
+        );
     }
+}
 }
