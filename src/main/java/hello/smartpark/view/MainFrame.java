@@ -5,8 +5,11 @@
 package hello.smartpark.view;
 
 import hello.smartpark.model.User;
+import hello.smartpark.session.UserSession;
 import hello.smartpark.view.HeaderPanel;
 import hello.smartpark.view.SidebarPanel;
+import hello.smartpark.view.auth.LoginFrame;
+import hello.smartpark.view.parking.ParkingEntryPanel;
 import hello.smartpark.view.shift.WorkShiftPanel;
 import java.awt.CardLayout;
 import java.awt.Panel;
@@ -18,9 +21,10 @@ import java.awt.Panel;
 public class MainFrame extends javax.swing.JFrame {
 
     private WorkShiftPanel workShiftPanel;
+    private ParkingEntryPanel parkingEntryPanel;
     private CardLayout card;
     HeaderPanel header = new HeaderPanel();
-    SidebarPanel side = new SidebarPanel();
+    SidebarPanel side;
 
     /**
      * Creates new form MainFrame
@@ -30,6 +34,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         card = new CardLayout();
         // Thêm các jpanel vào mainframe
+        side = new SidebarPanel(this);
         sideBarPanel.setLayout(new java.awt.BorderLayout());
         sideBarPanel.add(side, java.awt.BorderLayout.CENTER);
         headerPanel.setLayout(new java.awt.BorderLayout());
@@ -37,16 +42,24 @@ public class MainFrame extends javax.swing.JFrame {
 
         // Khởi tạo giao diện quản lý ca
         workShiftPanel = new WorkShiftPanel();
-
-        // Truyền tài khoản đăng nhập vào WorkShiftPanel
         contenPanel.setLayout(card);
         contenPanel.add(workShiftPanel, "workShift");
+        
+        //Khởi tạo giao diện xe vào bãi
+        parkingEntryPanel= new ParkingEntryPanel();
+        contenPanel.add(parkingEntryPanel, "parkingEntry");
 
     }
 
 
     public void showPanel(String namePanel) {
         card.show(contenPanel, namePanel);
+    }
+
+    public void logout() {
+        UserSession.clearSession();
+        new LoginFrame().setVisible(true);
+        dispose();
     }
 
     /**

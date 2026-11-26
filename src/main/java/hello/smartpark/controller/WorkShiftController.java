@@ -58,4 +58,8 @@ public class WorkShiftController {
     public boolean endShift(long shiftId, long userId) throws SQLException {
         return workShiftService.endShift(shiftId, userId);
     }
+    public Long getOpenShiftAssignedToUser(long userId) throws SQLException {
+    return workShiftService.getOpenShiftAssignedToUser(userId);
+}
+    
 }

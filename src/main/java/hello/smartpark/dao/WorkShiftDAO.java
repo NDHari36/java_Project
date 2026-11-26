@@ -320,5 +320,42 @@ public class WorkShiftDAO {
             }
         }
     }
+    // Lấy ca OPEN mà tài khoản thực sự được phân công
+public Long getOpenShiftAssignedToUser(long userId) throws SQLException {
+
+    String sql = """
+        SELECT ws.shift_id
+        FROM work_shifts ws
+        JOIN shift_assignments sa
+            ON sa.shift_id = ws.shift_id
+        JOIN users u
+            ON u.user_id = sa.user_id
+        WHERE ws.status = 'OPEN'
+          AND sa.user_id = ?
+          AND u.status = 'ACTIVE'
+        ORDER BY ws.opened_at DESC
+        LIMIT 1
+        """;
+
+    try (Connection conn = JDBCConnection.getConnection()) {
+
+        if (conn == null) {
+            throw new SQLException("Không thể kết nối database.");
+        }
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setLong(1, userId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("shift_id");
+                }
+            }
+        }
+    }
+
+    return null;
+}
 
 }

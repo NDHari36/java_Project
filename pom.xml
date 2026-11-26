@@ -20,7 +20,7 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/mysql-connector-j-9.7.0.jar</systemPath>
         </dependency>
-         <!-- BCrypt mã hóa mật khẩu -->
+        <!-- BCrypt mã hóa mật khẩu -->
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
@@ -36,6 +36,17 @@
     </dependencies>
     <!-- Cau hinh build -->
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.png</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.jpeg</include>
+                    <include>**/*.gif</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

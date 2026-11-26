@@ -97,4 +97,12 @@ public class WorkShiftService {
         }
         return workShiftDAO.endShift(shiftId, userId);
     }
+    public Long getOpenShiftAssignedToUser(long userId) throws SQLException {
+
+    if (userId <= 0) {
+        throw new IllegalArgumentException("Tài khoản không hợp lệ.");
+    }
+
+    return workShiftDAO.getOpenShiftAssignedToUser(userId);
+}
 }
